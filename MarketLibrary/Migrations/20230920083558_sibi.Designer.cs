@@ -4,14 +4,16 @@ using MarketLibrary;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MarketLibrary.Migrations
 {
     [DbContext(typeof(Marketcontext))]
-    partial class MarketcontextModelSnapshot : ModelSnapshot
+    [Migration("20230920083558_sibi")]
+    partial class sibi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

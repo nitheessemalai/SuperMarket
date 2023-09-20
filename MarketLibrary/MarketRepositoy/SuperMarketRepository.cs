@@ -38,7 +38,7 @@ namespace MarketLibrary.MarketRepositoy
         {
             try
             {
-                var reg = _context.SuperMarket.FromSqlRaw<Market>($"exec SPmarketmodelID{ID} ").ToList();
+                var reg = _context.SuperMarket.FromSqlRaw<Market>($"exec SPmarketmodelID {ID} ").ToList();
                 return reg.FirstOrDefault();
             }
             catch (SqlException ep)
@@ -54,7 +54,7 @@ namespace MarketLibrary.MarketRepositoy
         {
             try
             {
-                _context.Database.ExecuteSqlRaw($"exec SPInsert'{detail.Name}','{detail.code}','{detail.Department}','{detail.salary}','{detail.DOB}");
+                _context.Database.ExecuteSqlRaw($"exec SPInsert'{detail.Name}','{detail.code}','{detail.Department}','{detail.salary}','{detail.DOB}'");
 
             }
             catch (SqlException ep)
@@ -71,7 +71,7 @@ namespace MarketLibrary.MarketRepositoy
         {
             try
             {
-                _context.Database.ExecuteSqlRaw($"exec SPupdate '{detail.ID}','{detail.Name}','{detail.code}','{detail.Department}','{detail.salary}','{detail.DOB}");
+                _context.Database.ExecuteSqlRaw($"exec SPupdate '{detail.ID}','{detail.Name}','{detail.code}','{detail.Department}','{detail.salary}','{detail.DOB}'");
 
             }
             catch (SqlException ep)
@@ -102,7 +102,22 @@ namespace MarketLibrary.MarketRepositoy
             }
         }
 
+        List<dropdown> IEntityframRepository.Getdrop()
+        {
+            try
+            {
+                var reg = _context.Dropdowns.FromSqlRaw<dropdown>("exec getdropd").ToList();
+                return reg;
+            }
+            catch (SqlException ep)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
-
+        }
     }
 }

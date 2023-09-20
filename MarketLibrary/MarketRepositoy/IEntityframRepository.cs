@@ -16,5 +16,6 @@ namespace MarketLibrary.MarketRepositoy
         public void SPInsert(Market detail);
         public void SPupdate(Market detail);
         public void SPDelete(int ID);
+        public List<dropdown> Getdrop();
     }
 }

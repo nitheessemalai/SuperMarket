@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 
 namespace MarketLibrary.MarketModels
 {
-     public  class Market
+    public class Market
     {
+        public Market()
+        {
+            type = new List<dropdown>();
+        }
         [Key]
         public int  ID { get; set; }
         [Required]
@@ -23,6 +27,7 @@ namespace MarketLibrary.MarketModels
         public  int salary { get; set; }
         [Required]
         public DateTime DOB { get; set; }
+        public List<dropdown> type { get; set; }
 
 
     }

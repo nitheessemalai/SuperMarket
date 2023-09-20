@@ -12,7 +12,8 @@ namespace MarketLibrary
         }
 
         public DbSet<Market> SuperMarket { get; set; }
-        
+        public DbSet<dropdown> Dropdowns { get; set; }
+
     }
 }
   

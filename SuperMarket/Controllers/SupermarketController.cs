@@ -55,6 +55,7 @@ namespace SuperMarket.Controllers
         {
 
             var model = new Market();
+            model.type = repository.Getdrop();
             return View("Create", model);
         }
 
@@ -82,10 +83,19 @@ namespace SuperMarket.Controllers
         }
 
         // GET: SupermarketController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int ID)
         {
-            var model = new Market();
-            return View("Edit", model);
+            try
+            {
+                var model = new Market();
+                model = repository.SPmarketmodelID(ID);
+                return View("Edit", model);
+            }
+            catch
+            {
+                return View("Error");
+            }
+
         }
 
         // POST: SupermarketController/Edit/5
